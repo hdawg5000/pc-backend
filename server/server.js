@@ -65,7 +65,7 @@ app.post('/products/motherboards', (req, res) => {
     let product = new Product({
         name: req.body.name,
         type: req.body.type,
-        price: req.body.type,
+        price: req.body.price,
         imageUrl: req.body.imageUrl
     })
     product.save().then((product) => {
