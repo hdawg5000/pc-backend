@@ -63,3 +63,7 @@ app.post('/new/listing', (req, res) => {
 app.listen(port, () => {
     console.log(`Started server on port ${port}`)
 })
+
+module.exports = {
+    app
+}
