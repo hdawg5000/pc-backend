@@ -22,7 +22,7 @@ app.get('/listings', (req, res) => {
 app.get('/products/graphics_cards', (req, res) => {
     Product.find({ type: "graphics card" }).then((products) => {
         if (!products) {
-            res.status(404).send({ error: 'No products found' })
+            res.status(404).send({ error: 'No graphics cards found' })
         }
         res.status(200).send({ products })
     }, (error) => {
@@ -30,6 +30,47 @@ app.get('/products/graphics_cards', (req, res) => {
     }).catch((error) => {
         res.status(400).send({ error: 'Unable to fetch products' })
     })
+})
+
+app.post('/products/graphics_cards', (req, res) => {
+    if (req.body.type !== 'graphics card') {
+        return res.status(400).send({ error: "Type must be 'graphics card'" })
+    }
+    let product = new Product({
+        name: req.body.name,
+        price: req.body.price,
+        type: req.body.type,
+        imageUrl: req.body.imageUrl
+    })
+
+    product.save().then((product) => {
+        res.status(200).send({ product })
+    }).catch((error) => res.status(400).send({ error }))
+})
+
+app.get('/products/motherboards', (req, res) => {
+    Product.find({ type: 'motherboard' }).then((products) => {
+        if (!products) {
+            return res.status(404).send({ error: 'No motherboards found' })
+        }
+
+        res.status(200).send({ products })
+    })
+})
+
+app.post('/products/motherboards', (req, res) => {
+    if (req.body.type !== 'motherboard') {
+        return res.status(400).send({ error: "Type must be 'motherboard'" })
+    }
+    let product = new Product({
+        name: req.body.name,
+        type: req.body.type,
+        price: req.body.type,
+        imageUrl: req.body.imageUrl
+    })
+    product.save().then((product) => {
+        res.status(200).send({ product })
+    }).catch((error) => res.status(400).send({ error }))
 })
 
 app.post('/products', (req, res) => {
