@@ -19,8 +19,8 @@ app.get('/listings', (req, res) => {
 
 })
 
-app.get('/products', (req, res) => {
-    Product.find().then((products) => {
+app.get('/products/graphics_cards', (req, res) => {
+    Product.find({ type: "graphics card" }).then((products) => {
         if (!products) {
             res.status(404).send({ error: 'No products found' })
         }
