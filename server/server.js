@@ -1,7 +1,7 @@
 var express = require('express')
 var bodyParser = require('body-parser')
 var compression = require('compression') // middlewear that compresses response to client, reducing load time
-var helment = require('helmet') // middlewaear that protects app from well known web vulnerabilities
+var helmet = require('helmet') // middlewaear that protects app from well known web vulnerabilities
 
 var { mongoose } = require('./db/mongoose')
 var { Listing } = require('./models/listing')
