@@ -1,0 +1,19 @@
+{
+  "name": "partc-backend",
+  "version": "1.0.0",
+  "description": "Backend for partc",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hammad Naseem, Aamir Farooq",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "compression": "^1.7.2",
+    "express": "^4.16.3",
+    "mongodb": "^3.1.0-beta4",
+    "mongoose": "^5.1.2"
+  }
+}
